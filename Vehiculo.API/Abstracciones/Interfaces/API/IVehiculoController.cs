@@ -14,5 +14,9 @@ namespace Abstracciones.Interfaces.API
         Task<IActionResult> Editar(Guid Id, VehiculoRequest vehiculo);
 
         Task<IActionResult> Eliminar(Guid Id);
+
+        Task<IActionResult> ObtenerMarcas();
+
+        Task<IActionResult> ObtenerModelosPorMarca(Guid Id);
     }
 }

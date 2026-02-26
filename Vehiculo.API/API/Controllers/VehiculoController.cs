@@ -59,6 +59,16 @@ namespace API.Controllers
             var resultado = await _vehiculoFlujo.Obtener(Id);
             return Ok(resultado);
         }
+
+        public Task<IActionResult> ObtenerMarcas()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IActionResult> ObtenerModelosPorMarca(Guid Id)
+        {
+            throw new NotImplementedException();
+        }
         #endregion OPERACIONES
 
         #region HELPERS

@@ -77,35 +77,18 @@ namespace DA
             var resultadoConsulta = await _sqlConnection.QueryAsync<VehiculoResponse>(query);
             return resultadoConsulta;
         }
-        public async Task<VehiculoDetalle> Obtener(Guid Id)
+        public async Task<VehiculoResponse> Obtener(Guid Id)
         {
             string query = @"ObtenerVehiculo";
-            var resultadoConsulta = await _sqlConnection.QueryAsync<VehiculoDetalle>(query,
+            var resultadoConsulta = await _sqlConnection.QueryAsync<VehiculoResponse>(query,
                 new { Id=Id});
             return resultadoConsulta.FirstOrDefault();
         }
-
-        //public async Task<IEnumerable<Marca>> ObtenerMarcas()
-        //{
-        //    string query = @"ObtenerMarcas";
-        //    var resultadoConsulta = await _sqlConnection.QueryAsync<Marca>(query);
-        //    return resultadoConsulta;
-        //}
-
-        //public async Task<IEnumerable<Modelo>> ObtenerModelosPorMarca(Guid idMarca)
-        //{
-        //    string query = @"ObtenerModelosPorMarca";
-        //    var resultadoConsulta = await _sqlConnection.QueryAsync<Modelo>(query, new
-        //    {
-        //        IdMarca = idMarca
-        //    });
-        //    return resultadoConsulta;
-        //}
         #endregion
         #region Helpers
         private async Task verificarVehiculoExiste(Guid Id)
         {
-            VehiculoDetalle? resultadoConsultaVehiculo = await Obtener(Id);
+            VehiculoResponse? resultadoConsultaVehiculo = await Obtener(Id);
             if (resultadoConsultaVehiculo == null)
                 throw new Exception("No se encontró el vehiculo");
         }

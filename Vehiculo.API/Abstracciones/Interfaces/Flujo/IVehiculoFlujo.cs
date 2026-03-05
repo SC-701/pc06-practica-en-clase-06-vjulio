@@ -6,7 +6,7 @@ namespace Abstracciones.Interfaces.Flujo
     {
         Task<IEnumerable<VehiculoResponse>> Obtener();
 
-        Task<VehiculoDetalle> Obtener(Guid Id);
+        Task<VehiculoResponse> Obtener(Guid Id);
 
         Task<Guid> Agregar(VehiculoRequest vehiculo);
 

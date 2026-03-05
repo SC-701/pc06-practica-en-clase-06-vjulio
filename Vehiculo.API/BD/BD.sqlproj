@@ -69,7 +69,5 @@
     <Build Include="dbo\Stored Procedures\EditarVehiculo.sql" />
     <Build Include="dbo\Stored Procedures\AgregarVehiculo.sql" />
     <Build Include="dbo\Stored Procedures\ObtenerVehiculos.sql" />
-    <Build Include="dbo\Stored Procedures\ObtenerMarcas.sql" />
-    <Build Include="dbo\Stored Procedures\ObtenerModelosPorMarca.sql" />
   </ItemGroup>
 </Project>

@@ -20,7 +20,7 @@
 name: Deploy Vehiculo API to Azure
 
 env:
-  AZURE_WEBAPP_NAME: j1API    # Cambia esto por el nombre de tu Azure Web App
+  AZURE_WEBAPP_NAME: j1API   # Cambia esto por el nombre de tu Azure Web App
   AZURE_WEBAPP_PACKAGE_PATH: './Vehiculo.API/API'     # Ruta al proyecto API
   DOTNET_VERSION: '8.0'                  # Versión .NET 8.0 según tu proyecto
 
@@ -28,7 +28,7 @@ on:
   push:
     branches: [ "main" ]
     paths-ignore:
-      - 'Vehiculo.API/BD/**'  
+      - 'Vehiculo.API/BD/**'
   workflow_dispatch:
 
 permissions:
@@ -77,10 +77,10 @@ jobs:
       - name: Run tests (excluding BD project)
         run: |
           cd "Vehiculo.API"
-          dotnet test "Vehiculo.API/API/API.csproj" --no-restore --verbosity normal --configuration Release || echo "No tests found or test execution failed"
+          dotnet test "API/API.csproj" --no-restore --verbosity normal --configuration Release || echo "No tests found or test execution failed"
 
       - name: dotnet publish
-        run: dotnet publish "Semana 05-API y WEB/Vehiculo.API/API/API.csproj" -c Release -o ./publish --no-restore
+        run: dotnet publish "Vehiculo.API/API/API.csproj" -c Release -o ./publish --no-restore
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4

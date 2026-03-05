@@ -77,10 +77,10 @@ namespace DA
             var resultadoConsulta = await _sqlConnection.QueryAsync<VehiculoResponse>(query);
             return resultadoConsulta;
         }
-        public async Task<VehiculoDetalle> Obtener(Guid Id)
+        public async Task<VehiculoResponse> Obtener(Guid Id)
         {
             string query = @"ObtenerVehiculo";
-            var resultadoConsulta = await _sqlConnection.QueryAsync<VehiculoDetalle>(query,
+            var resultadoConsulta = await _sqlConnection.QueryAsync<VehiculoResponse>(query,
                 new { Id=Id});
             return resultadoConsulta.FirstOrDefault();
         }
@@ -94,6 +94,13 @@ namespace DA
         {
             throw new NotImplementedException();
         }
+        //    string query = @"ObtenerModelosPorMarca";
+        //    var resultadoConsulta = await _sqlConnection.QueryAsync<Modelo>(query, new
+        //    {
+        //        IdMarca = idMarca
+        //    });
+        //    return resultadoConsulta;
+        //}
         #endregion
         #region Helpers
         private async Task verificarVehiculoExiste(Guid Id)

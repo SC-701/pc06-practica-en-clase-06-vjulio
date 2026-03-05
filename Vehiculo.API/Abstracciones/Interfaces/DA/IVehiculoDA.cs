@@ -1,5 +1,4 @@
 ﻿using Abstracciones.Modelos;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Abstracciones.Interfaces.DA
 {
@@ -7,7 +6,7 @@ namespace Abstracciones.Interfaces.DA
     {
         Task<IEnumerable<VehiculoResponse>> Obtener();
 
-        Task<VehiculoDetalle> Obtener(Guid Id);
+        Task<VehiculoResponse> Obtener(Guid Id);
 
         Task<Guid> Agregar(VehiculoRequest vehiculo);
 

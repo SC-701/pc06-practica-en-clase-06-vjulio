@@ -77,12 +77,22 @@ namespace DA
             var resultadoConsulta = await _sqlConnection.QueryAsync<VehiculoResponse>(query);
             return resultadoConsulta;
         }
-        public async Task<VehiculoResponse> Obtener(Guid Id)
+        public async Task<VehiculoDetalle> Obtener(Guid Id)
         {
             string query = @"ObtenerVehiculo";
-            var resultadoConsulta = await _sqlConnection.QueryAsync<VehiculoResponse>(query,
+            var resultadoConsulta = await _sqlConnection.QueryAsync<VehiculoDetalle>(query,
                 new { Id=Id});
             return resultadoConsulta.FirstOrDefault();
+        }
+
+        public Task<IEnumerable<VehiculoMarcas>> ObtenerMarcas()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<VehiculoModelosPorMarcas>> ObtenerModelosPorMarca(Guid Id)
+        {
+            throw new NotImplementedException();
         }
         #endregion
         #region Helpers

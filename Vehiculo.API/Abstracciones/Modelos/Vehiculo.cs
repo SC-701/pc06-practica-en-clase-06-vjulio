@@ -6,11 +6,11 @@ namespace Abstracciones.Modelos
     {
         [Required(ErrorMessage = "La propiedad placa es requerida")]
         [RegularExpression(@"[A-Za-z]{3}-[0-9]{3}",ErrorMessage = "El formato de la placa ###-ABC")]
-        public string Placa { get; set; }
+        public string Placa { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "La propiedad color es requerida")]
         [StringLength(40, ErrorMessage="La propiedad de color debe ser mayor a 4 caracteres y menor a 40",MinimumLength=4)]
-        public string Color { get; set; }
+        public string Color { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "La propiedad año es requerida")]
         [RegularExpression(@"(19|20)\d\d")]
@@ -21,11 +21,11 @@ namespace Abstracciones.Modelos
 
         [Required(ErrorMessage = "La propiedad correo es requerida")]
         [EmailAddress]
-        public string CorreoPropietario { get; set; }
+        public string CorreoPropietario { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "La propiedad teléfono es requerida")]
         [Phone]
-        public string Telefono { get; set; }
+        public string Telefono { get; set; } = string.Empty;
     }
 
     public class VehiculoRequest : VehiculoBase

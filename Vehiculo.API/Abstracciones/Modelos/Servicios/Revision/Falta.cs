@@ -8,7 +8,7 @@ namespace Abstracciones.Modelos.Servicios.Revision
 {
     public class Falta
     {
-        public string Tipo { get; set; }
-        public string Descripcion { get; set; }
+        public string Tipo { get; set; } = string.Empty;
+        public string Descripcion { get; set; } = string.Empty;
     }
 }

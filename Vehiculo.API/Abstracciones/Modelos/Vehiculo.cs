@@ -37,8 +37,8 @@ namespace Abstracciones.Modelos
     {
         public Guid Id { get; set; }
         public Guid IdModelo { get; set;}
-        public string Modelo   { get; set;}
-        public string Marca     { get; set;}
+        public string Modelo   { get; set; } = string.Empty;
+        public string Marca     { get; set; } = string.Empty;
     }
     public class VehiculoDetalle:VehiculoResponse
     {

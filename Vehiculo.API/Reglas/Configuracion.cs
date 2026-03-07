@@ -31,14 +31,27 @@ namespace Reglas
 
             return $"{urlBase}/{metodo}";
         }
-        private string? ObtenerUrlBase(string seccion)
-        {
-            return _configuration.GetSection(seccion).Get<APIEndPoint>().UrlBase;
-        }
+        //private string? ObtenerUrlBase(string seccion)
+        //{
+        //    return _configuration.GetSection(seccion).Get<APIEndPoint>().UrlBase;
+        //}
 
+        //public string ObtenerValor(string llave)
+        //{
+        //    return _configuration.GetSection(llave).Value;
+        //}
+        private string ObtenerUrlBase(string seccion)
+        {
+            var endpoint = _configuration.GetSection(seccion).Get<APIEndPoint>()
+                ?? throw new Exception($"No existe configuración para {seccion}");
+
+            return endpoint.UrlBase
+                ?? throw new Exception($"UrlBase no definida en {seccion}");
+        }
         public string ObtenerValor(string llave)
         {
-            return _configuration.GetSection(llave).Value;
+            return _configuration.GetSection(llave).Value
+                ?? throw new Exception($"No existe valor para {llave}");
         }
     }
 }

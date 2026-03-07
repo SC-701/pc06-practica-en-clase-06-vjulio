@@ -21,17 +21,34 @@ namespace Servicios
             _httpClient = httpClient;
         }
 
-        public async Task<Revision> Obtener(string placa)
+        //public async Task<Revision> Obtener(string placa)
+        //{
+        //    var endPoint = _configuracion.ObtenerMetodo("ApiEndPointsRevision", "ObtenerRevision");
+        //    var servicioRevision = _httpClient.CreateClient("ServicioRevision");
+        //    var respuesta = await servicioRevision.GetAsync(string.Format(endPoint,placa) );
+        //    respuesta.EnsureSuccessStatusCode();
+        //    var resultado = await respuesta.Content.ReadAsStringAsync();
+        //    var opciones = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        //    var resultadoDeserializado = JsonSerializer.Deserialize<List<Revision>>(resultado, opciones);
+        //    return resultadoDeserializado.FirstOrDefault();
+
+        //}
+        public async Task<Revision?> Obtener(string placa)
         {
             var endPoint = _configuracion.ObtenerMetodo("ApiEndPointsRevision", "ObtenerRevision");
             var servicioRevision = _httpClient.CreateClient("ServicioRevision");
-            var respuesta = await servicioRevision.GetAsync(string.Format(endPoint,placa) );
-            respuesta.EnsureSuccessStatusCode();
-            var resultado = await respuesta.Content.ReadAsStringAsync();
-            var opciones = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            var resultadoDeserializado = JsonSerializer.Deserialize<List<Revision>>(resultado, opciones);
-            return resultadoDeserializado.FirstOrDefault();
 
+            var respuesta = await servicioRevision.GetAsync(string.Format(endPoint, placa));
+            respuesta.EnsureSuccessStatusCode();
+
+            var resultado = await respuesta.Content.ReadAsStringAsync();
+
+            var opciones = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
+            var resultadoDeserializado =
+                JsonSerializer.Deserialize<List<Revision>>(resultado, opciones);
+
+            return resultadoDeserializado?.FirstOrDefault();
         }
     }
 }

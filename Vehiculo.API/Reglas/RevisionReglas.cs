@@ -31,7 +31,7 @@ namespace Reglas
                 return false;
 
             return ValidarEstado(resultadoRevision) &&
-                   ValidarPeriodo(resultadoRevision.Periodo);
+                   ValidarPeriodo(resultadoRevision.Periodo ?? "");
         }
         private bool ValidarEstado(Revision resultadoRevision)
         {

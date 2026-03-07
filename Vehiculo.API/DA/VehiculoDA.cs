@@ -86,13 +86,15 @@ namespace DA
         //}
         public async Task<VehiculoDetalle?> Obtener(Guid Id)
         {
-            string query = @"ObtenerVehiculo";
+            string query = "ObtenerVehiculo";
 
             var resultadoConsulta = await _sqlConnection.QueryAsync<VehiculoDetalle>(
                 query,
-                new { Id = Id });
+                new { Id });
 
-            return resultadoConsulta.FirstOrDefault();
+            VehiculoDetalle? vehiculo = resultadoConsulta.FirstOrDefault();
+
+            return vehiculo;
         }
 
         public Task<IEnumerable<VehiculoMarcas>> ObtenerMarcas()

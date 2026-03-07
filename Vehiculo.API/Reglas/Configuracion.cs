@@ -13,14 +13,24 @@ namespace Reglas
             _configuration = configuracion;
         }
 
+        //public string ObtenerMetodo(string seccion, string nombre)
+        //{
+        //    string? UrlBase = ObtenerUrlBase(seccion);
+        //    var Metodo = _configuration.GetSection(seccion).Get<APIEndPoint>
+        //        ().Metodos.Where(m => m.Nombre == nombre).FirstOrDefault().Valor;
+        //    return $"{UrlBase}/{Metodo}";
+        //}
         public string ObtenerMetodo(string seccion, string nombre)
         {
-            string? UrlBase = ObtenerUrlBase(seccion);
-            var Metodo = _configuration.GetSection(seccion).Get<APIEndPoint>
-                ().Metodos.Where(m => m.Nombre == nombre).FirstOrDefault().Valor;
-            return $"{UrlBase}/{Metodo}";
-        }
+            string? urlBase = ObtenerUrlBase(seccion);
 
+            var endpoint = _configuration.GetSection(seccion).Get<APIEndPoint>();
+
+            var metodo = endpoint?.Metodos?
+                .FirstOrDefault(m => m.Nombre == nombre)?.Valor;
+
+            return $"{urlBase}/{metodo}";
+        }
         private string? ObtenerUrlBase(string seccion)
         {
             return _configuration.GetSection(seccion).Get<APIEndPoint>().UrlBase;

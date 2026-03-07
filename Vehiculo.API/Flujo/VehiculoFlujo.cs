@@ -38,11 +38,24 @@ namespace Flujo
             return await _vehiculoDA.Obtener();
         }
 
+        //public async Task<VehiculoDetalle> Obtener(Guid Id)
+        //{
+        //    var vehiculo = await _vehiculoDA.Obtener(Id);
+        //    vehiculo.RegistroValido = await _registroReglas.VehiculoEstaRegistrado(vehiculo.Placa, vehiculo.CorreoPropietario);
+        //    vehiculo.RevisionValida = await _revisionReglas.RevisionEsValida(vehiculo.Placa);
+        //    return vehiculo;
+        //}
         public async Task<VehiculoDetalle> Obtener(Guid Id)
         {
-            var vehiculo = await _vehiculoDA.Obtener(Id);
-            vehiculo.RegistroValido = await _registroReglas.VehiculoEstaRegistrado(vehiculo.Placa, vehiculo.CorreoPropietario);
-            vehiculo.RevisionValida = await _revisionReglas.RevisionEsValida(vehiculo.Placa);
+            var vehiculo = await _vehiculoDA.Obtener(Id)
+                ?? throw new Exception("Vehículo no encontrado");
+
+            vehiculo.RegistroValido = await _registroReglas
+                .VehiculoEstaRegistrado(vehiculo.Placa ?? "", vehiculo.CorreoPropietario ?? "");
+
+            vehiculo.RevisionValida = await _revisionReglas
+                .RevisionEsValida(vehiculo.Placa ?? "");
+
             return vehiculo;
         }
     }

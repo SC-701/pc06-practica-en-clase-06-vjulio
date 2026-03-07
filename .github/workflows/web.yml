@@ -11,6 +11,7 @@ name: Build and deploy Web App
 
 env:
   AZURE_WEBAPP_NAME: j1web
+  AZURE_WEBAPP_PACKAGE_PATH: './Vehiculo.WEB/WEB'
   DOTNET_VERSION: '8.0'
 
 on:
@@ -56,7 +57,7 @@ jobs:
     needs: build
 
     environment:
-      name: ProductionWeb
+      name: Production-Web
       url: ${{ steps.deploy.outputs.webapp-url }}
 
     steps:

@@ -12,7 +12,7 @@ name: Deploy Vehiculo React Web App to Azure
 
 env:
   AZURE_WEBAPP_NAME: j1web    # Cambia esto por el nombre de tu Azure Web App para la aplicación React
-  AZURE_WEBAPP_PACKAGE_PATH: './Vehiculo.API/API'
+  AZURE_WEBAPP_PACKAGE_PATH: './Vehiculos.WEB/Web'
   NODE_VERSION: '8.0'                # Versión de Node.js
 
 on:

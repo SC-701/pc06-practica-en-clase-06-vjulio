@@ -25,7 +25,8 @@ namespace Abstracciones.Modelos
 
         [Required(ErrorMessage = "La propiedad teléfono es requerida")]
         [Phone]
-        public string? Telefono { get; set; } 
+        public string? Telefono { get; set; }
+    }
 
     public class VehiculoRequest : VehiculoBase
     {

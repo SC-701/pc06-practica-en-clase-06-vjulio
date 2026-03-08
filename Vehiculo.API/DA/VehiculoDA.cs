@@ -97,26 +97,26 @@ namespace DA
         //    return vehiculo;
         //}
 
-        public async Task<IEnumerable<VehiculoMarcas>> ObtenerMarcas()
-        {
-            string query = @"ObtenerMarcas";
+        //public async Task<IEnumerable<VehiculoMarcas>> ObtenerMarcas()
+        //{
+        //    string query = @"ObtenerMarcas";
 
-            var resultadoConsulta = await _sqlConnection.QueryAsync<VehiculoMarcas>(query);
+        //    var resultadoConsulta = await _sqlConnection.QueryAsync<VehiculoMarcas>(query);
 
-            return resultadoConsulta;
-        }
+        //    return resultadoConsulta;
+        //}
 
-        public async Task<IEnumerable<VehiculoModelosPorMarcas>> ObtenerModelosPorMarca(Guid Id)
-        {
-            string query = @"ObtenerModelosPorMarca";
+        //public async Task<IEnumerable<VehiculoModelosPorMarcas>> ObtenerModelosPorMarca(Guid Id)
+        //{
+        //    string query = @"ObtenerModelosPorMarca";
 
-            var resultadoConsulta = await _sqlConnection.QueryAsync<VehiculoModelosPorMarcas>(
-                query,
-                new { Id = Id }
-            );
+        //    var resultadoConsulta = await _sqlConnection.QueryAsync<VehiculoModelosPorMarcas>(
+        //        query,
+        //        new { Id = Id }
+        //    );
 
-            return resultadoConsulta;
-        }
+        //    return resultadoConsulta;
+        //}
         #endregion
         #region Helpers
         private async Task verificarVehiculoExiste(Guid Id)

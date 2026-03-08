@@ -15,8 +15,5 @@ namespace Abstracciones.Interfaces.DA
 
         Task<Guid> Eliminar(Guid Id);
 
-        Task<IEnumerable<VehiculoMarcas>> ObtenerMarcas();
-
-        Task<IEnumerable<VehiculoModelosPorMarcas>> ObtenerModelosPorMarca(Guid Id);
     }
 }

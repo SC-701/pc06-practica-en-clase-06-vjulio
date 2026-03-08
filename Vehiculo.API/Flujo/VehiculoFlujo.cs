@@ -59,19 +59,19 @@ namespace Flujo
 
             return vehiculo;
         }
-        public async Task<IEnumerable<VehiculoMarcas>> ObtenerMarcas()
-        {
-            return await _vehiculoDA.ObtenerMarcas();
-        }
-        public async Task<IEnumerable<VehiculoModelosPorMarcas>> ObtenerModelosPorMarca(Guid Id)
-        {
+        //public async Task<IEnumerable<VehiculoMarcas>> ObtenerMarcas()
+        //{
+        //    return await _vehiculoDA.ObtenerMarcas();
+        //}
+        //public async Task<IEnumerable<VehiculoModelosPorMarcas>> ObtenerModelosPorMarca(Guid Id)
+        //{
 
-            var modelos = await _vehiculoDA.ObtenerModelosPorMarca(Id)
-                ?? throw new Exception("Modelos no encontrado");
+        //    var modelos = await _vehiculoDA.ObtenerModelosPorMarca(Id)
+        //        ?? throw new Exception("Modelos no encontrado");
 
 
-            return modelos;
-        }
+        //    return modelos;
+        //}
 
 
     }

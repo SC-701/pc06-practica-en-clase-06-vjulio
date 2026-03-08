@@ -59,18 +59,7 @@ namespace API.Controllers
             var resultado = await _vehiculoFlujo.Obtener(Id);
             return Ok(resultado);
         }
-        [HttpGet("marcas")]
-        public async Task<IActionResult> ObtenerMarcas()
-        {
-            var resultado = await _vehiculoFlujo.ObtenerMarcas();
-            return Ok(resultado);
-        }
-        [HttpGet("marcas/{Id}/modelos")]
-        public async Task<IActionResult> ObtenerModelosPorMarca([FromRoute] Guid Id)
-        {
-            var resultado = await _vehiculoFlujo.ObtenerModelosPorMarca(Id);
-            return Ok(resultado);
-        }
+       
         #endregion OPERACIONES
 
         #region HELPERS

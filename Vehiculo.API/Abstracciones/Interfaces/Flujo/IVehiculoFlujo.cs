@@ -14,9 +14,6 @@ namespace Abstracciones.Interfaces.Flujo
 
         Task<Guid> Eliminar(Guid Id);
 
-        Task<IEnumerable<VehiculoMarcas>> ObtenerMarcas();
-
-        Task<IEnumerable<VehiculoModelosPorMarcas>> ObtenerModelosPorMarca(Guid Id);
 
     }
 }

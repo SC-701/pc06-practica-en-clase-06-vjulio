@@ -47,15 +47,15 @@ namespace Abstracciones.Modelos
     }
 
 
-    public class VehiculoMarcas 
-    {
-        public Guid Id { get; set; }
-        public string? Nombre { get; set; }
-    }
-    public class VehiculoModelosPorMarcas
-    {
-        public Guid Id { get; set; }
-        public Guid IdMarca { get; set; }
-        public string? Nombre { get; set; }
-    }
+    //public class VehiculoMarcas 
+    //{
+    //    public Guid Id { get; set; }
+    //    public string? Nombre { get; set; }
+    //}
+    //public class VehiculoModelosPorMarcas
+    //{
+    //    public Guid Id { get; set; }
+    //    public Guid IdMarca { get; set; }
+    //    public string? Nombre { get; set; }
+    //}
 }

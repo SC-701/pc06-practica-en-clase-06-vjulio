@@ -1,7 +1,7 @@
 ﻿using Abstracciones.Interfaces.DA;
 using Microsoft.Data.SqlClient;
 using Dapper;
-using Abstracciones.Modelos;
+using Abstracciones.Modelos ;
 namespace DA
 {
     public class MarcaDA : IMarcaDA

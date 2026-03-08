@@ -2,6 +2,7 @@
 using Abstracciones.Interfaces.Flujo;
 using Abstracciones.Interfaces.Reglas;
 using Abstracciones.Modelos;
+using Microsoft.Data.SqlClient;
 
 namespace Flujo
 {
@@ -58,5 +59,20 @@ namespace Flujo
 
             return vehiculo;
         }
+        public async Task<IEnumerable<VehiculoMarcas>> ObtenerMarcas()
+        {
+            return await _vehiculoDA.ObtenerMarcas();
+        }
+        public async Task<IEnumerable<VehiculoModelosPorMarcas>> ObtenerModelosPorMarca(Guid Id)
+        {
+
+            var modelos = await _vehiculoDA.ObtenerModelosPorMarca(Id)
+                ?? throw new Exception("Modelos no encontrado");
+
+
+            return modelos;
+        }
+
+
     }
 }

@@ -97,14 +97,25 @@ namespace DA
         //    return vehiculo;
         //}
 
-        public Task<IEnumerable<VehiculoMarcas>> ObtenerMarcas()
+        public async Task<IEnumerable<VehiculoMarcas>> ObtenerMarcas()
         {
-            throw new NotImplementedException();
+            string query = @"ObtenerMarcas";
+
+            var resultadoConsulta = await _sqlConnection.QueryAsync<VehiculoMarcas>(query);
+
+            return resultadoConsulta;
         }
 
-        public Task<IEnumerable<VehiculoModelosPorMarcas>> ObtenerModelosPorMarca(Guid Id)
+        public async Task<IEnumerable<VehiculoModelosPorMarcas>> ObtenerModelosPorMarca(Guid Id)
         {
-            throw new NotImplementedException();
+            string query = @"ObtenerModelosPorMarca";
+
+            var resultadoConsulta = await _sqlConnection.QueryAsync<VehiculoModelosPorMarcas>(
+                query,
+                new { Id = Id }
+            );
+
+            return resultadoConsulta;
         }
         #endregion
         #region Helpers

@@ -60,14 +60,16 @@ namespace API.Controllers
             return Ok(resultado);
         }
         [HttpGet("marcas")]
-        public Task<IActionResult> ObtenerMarcas()
+        public async Task<IActionResult> ObtenerMarcas()
         {
-            throw new NotImplementedException();
+            var resultado = await _vehiculoFlujo.ObtenerMarcas();
+            return Ok(resultado);
         }
         [HttpGet("marcas/{Id}/modelos")]
         public async Task<IActionResult> ObtenerModelosPorMarca([FromRoute] Guid Id)
         {
-            throw new NotImplementedException();
+            var resultado = await _vehiculoFlujo.ObtenerModelosPorMarca(Id);
+            return Ok(resultado);
         }
         #endregion OPERACIONES
 

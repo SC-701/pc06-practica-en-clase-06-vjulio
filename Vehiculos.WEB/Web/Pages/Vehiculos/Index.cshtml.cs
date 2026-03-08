@@ -19,46 +19,21 @@ namespace Web.Pages.Vehiculos
             _configuracion = configuracion;
         }
 
-        //public async Task OnGet()
-        //{
-        //    string endpoint = _configuracion.ObtenerMetodo("ApiEndPoints", "ObtenerVehiculos");
-        //    var cliente= new HttpClient();
-        //    var solicitud= new HttpRequestMessage(HttpMethod.Get,endpoint);
-            
-        //    var respuesta = await cliente.SendAsync(solicitud);
-        //    respuesta.EnsureSuccessStatusCode();
-        //    if (respuesta.StatusCode == HttpStatusCode.OK)
-        //    {
-        //        var resultado=await respuesta.Content.ReadAsStringAsync();
-        //        var opciones=new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-        //        vehiculos = JsonSerializer.Deserialize<List<VehiculoResponse>>(resultado, opciones);
-        //    }
-        //}
         public async Task OnGet()
         {
             string endpoint = _configuracion.ObtenerMetodo("ApiEndPoints", "ObtenerVehiculos");
-
-            var cliente = new HttpClient();
-            var solicitud = new HttpRequestMessage(HttpMethod.Get, endpoint);
-
+            var cliente= new HttpClient();
+            var solicitud= new HttpRequestMessage(HttpMethod.Get,endpoint);
+            
             var respuesta = await cliente.SendAsync(solicitud);
-
-            if (respuesta.IsSuccessStatusCode)
+            respuesta.EnsureSuccessStatusCode();
+            if (respuesta.StatusCode == HttpStatusCode.OK)
             {
-                var resultado = await respuesta.Content.ReadAsStringAsync();
-
-                var opciones = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
-
-                vehiculos = JsonSerializer.Deserialize<List<VehiculoResponse>>(resultado, opciones)
-                            ?? new List<VehiculoResponse>();
-            }
-            else
-            {
-                vehiculos = new List<VehiculoResponse>();
+                var resultado=await respuesta.Content.ReadAsStringAsync();
+                var opciones=new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                vehiculos = JsonSerializer.Deserialize<List<VehiculoResponse>>(resultado, opciones);
             }
         }
+
     }
 }

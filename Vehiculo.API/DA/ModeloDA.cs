@@ -21,9 +21,9 @@ namespace DA
 
         public async Task<IEnumerable<Modelo>> Obtener(Guid IdMarca)
         {
-            string query = @"ObtenerModelos";
+            string query = @"ObtenerModelosPorMarca";
             var resultadoConsulta = await _sqlConnection.QueryAsync<Modelo>(query,
-                new { IdMarca = IdMarca });
+                new { Id = IdMarca });
             return resultadoConsulta;
         }
         #endregion
